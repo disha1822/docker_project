@@ -9,4 +9,5 @@ In this particular example I have made a **Two Tier Architecture** having
   * 2. Database Tier : A dynamic website requires a database support and it can be accessed through the web server only.
                   Software used : MySQL
 I have built this in a **Single Server Architecture**
+
 ![Single_Server](https://www.codeproject.com/KB/applications/1262641/Single_Server_-_Two_Tier.png)

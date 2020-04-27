@@ -16,8 +16,32 @@ I have built this in a **Single Server Architecture**
 
 ## 1. Pulling The Images:
 For this project I have used mysql:latest and php:7.4-apache images from docker hub.To pull these images run
-~ docker pull mysql:latest 
-~ docker pull php:7.4-apache
+`docker pull mysql:latest` and `docker pull php:7.4-apache`
 
+## 2. Launching The Containers:
+Since our web server is dependent on the database server so we have to launch the database server first and for this run
+`docker run -dit -e MYSQL_ROOT_PASSWORD =rootpass -e MYSQL_USER = user -e MYSQL_PASSWORD = password -e MYSQL_DATABASE = mybd -v mysql_st:/var/lib/mysql -p 6033:3306 --name mysql mysql:latest`after that launch the web server by running `docker run -dit -v php:/var/www/html -p 8080:80 --name php74 --link mysql php:7.4-apache`
+Now both the servers are up.
 
+## 3.Connectivity
+Now the PHP to connect with the MySQL database we need to install the php extention pdo and pdo_mysql. Then inside php folder 
+create an index.php file and run this code:
+```
+<?php
+
+try{
+        $con = new PDO("mysql:host=localhost:6033;dbname=mydb","user","password");
+        echo "Connected";
+}catch(PDOException $e){
+        echo "error".$e->getMessage();
+}
+
+?>
+        
+```
+After this if  we browse http://localhost:8080 the site will show Connected if the connection is made successfully and if not it will raise an exception.
+
+## 4. docker-compose :
+This whole architecture can be made in one command `docker-compose up` if we create the **Infrastructure as Code** using docker-compose.For this we first need to install docker-compose, it does not come installed with docker.
+For installing docker-compose we can refer to this [page](https://docs.docker.com/compose/install/)
 

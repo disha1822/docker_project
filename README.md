@@ -64,15 +64,32 @@ dbos:
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: toor@disha
-      MYSQL_DATABASE: test_db
-      MYSQL_USER: disha
-      MYSQL_PASSWORD: dbpass
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     ports:
       - 6033:3306
     volumes:
       - ./mysql_st:/var/lib/mysql
 ```
+  #### version:
+  There are several versions of Compose file format.We have to specify the version we are using as all the keywords are not supported by 
+  every versions.Here we are using the latest version '3'.
+  #### services:
+  It list outs all the services we are running in the infrastructure.
+  #### build:
+  It builds the container from a Dockerfile from the directory specified by the **context** keyword.
+  #### container_name:
+  Gives the container any name we want.
+  #### volumes:
+  Mounts the host paths or named volumes to the services, so the data inside container becomes persistent.
+  #### ports:
+  Exposes the server port through a free host port, HOST:CONTAINER.
+  #### depends_on:
+  Express dependencies between services eg. here *web* service depends on *dbos* service.
+  #### environment:
+  Here we specify environment variables.
 Since here we are using an Dockerfile to build the service web, so we need to create a Dockerfile with the following code
 ```
 FROM php:7.4-apache

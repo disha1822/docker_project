@@ -15,4 +15,9 @@ I have built this in a **Single Server Architecture**
 ## Project Description
 
 ## 1. Pulling The Images:
+For this project I have used mysql:latest and php:7.4-apache images from docker hub.To pull these images run
+~docker pull mysql:latest 
+~docker pull php:7.4-apache
+
+
 

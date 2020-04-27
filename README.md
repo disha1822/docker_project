@@ -90,6 +90,7 @@ dbos:
   Express dependencies between services eg. here *web* service depends on *dbos* service.
   #### environment:
   Here we specify environment variables.
+#### Dockerfile:
 Since here we are using an Dockerfile to build the service web, so we need to create a Dockerfile with the following code
 ```
 FROM php:7.4-apache

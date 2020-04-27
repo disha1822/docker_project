@@ -7,7 +7,12 @@ In this particular example I have made a **Two Tier Architecture** having
   * 1. Web Tier : It is the Front end and can be accessed openly through the internet
                   Softwares used : Apache and PHP            
   * 2. Database Tier : A dynamic website requires a database support and it can be accessed through the web server only.
-                  Software used : MySQL
+                  Software used : MySQL. 
 I have built this in a **Single Server Architecture**
 
 ![Single_Server](https://www.codeproject.com/KB/applications/1262641/Single_Server_-_Two_Tier.png)
+
+## Project Description
+
+## 1. Pulling The Images:
+
